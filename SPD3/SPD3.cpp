@@ -25,7 +25,7 @@ int NEH(int N, int M, int* P, int* X)
 	{
 		for (int d = 0; d < M; d++)
 		{
-			W[c] += P[c + d];
+			W[c] += P[c*M + d];
 		}
 	}
 	for (int b = 0; b < N - 1; b++)		//sortowanie zadań wagami
