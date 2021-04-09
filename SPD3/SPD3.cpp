@@ -42,7 +42,7 @@ int NEH(int N, int M, int* P, int* X)
 	delete[]W;
 	for (int n = 0; n < N; n++)		//wstawianie na odpowiednią pozycję
 	{
-		int bestP = -1, bestCmax = 9999999;
+		int bestP = -1, bestCmax = 999999999;
 		for (int p = n; p >= 0; p--)
 		{
 			int tmp = cmax(n+1, M, P, X);
