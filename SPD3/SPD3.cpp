@@ -68,7 +68,7 @@ int main()
 	int N, M, P[10000],X[1000];
 	string s;	
 	ifstream f("data.txt");		// otworzenie strumienia wczytywania danych z pliku
-	while (s != "data.001:")	//szukanie odpowiedniego zbioru danych
+	while (s != "data.000:")	//szukanie odpowiedniego zbioru danych
 	{
 		f >> s;
 	}
@@ -82,10 +82,6 @@ int main()
 		X[i] = i;
 	}
 	cout <<NEH(N, M, P, X)<<endl;
-	for (int i = 0; i < N; i++)
-	{
-		cout << X[i] + 1<<" ";
-	}
 	cin.get();				// czekanie z skończeniem działania programu
 	f.close();			//zamknięcie strumienia wczytywania danych z pliku
 }
