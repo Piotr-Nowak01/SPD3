@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <chrono>
 using namespace std;
 int cmax(int N, int M, int *P, int *X) //funkcja licząca długość wykonywania zadań
 {
@@ -68,6 +69,7 @@ int main()
 {
 	
 	int N, M, P[10000],X[1000];
+	int x;
 	string s="data.",s1,s2;
 	ifstream f("data.txt");		// otworzenie strumienia wczytywania danych z pliku
 	for (int i = 0; i < 121; i++)
@@ -97,7 +99,12 @@ int main()
 		{
 			X[i] = i;
 		}
-		cout <<s1<<" "<<NEH(N, M, P, X) << endl;
+		auto start = chrono::high_resolution_clock::now();
+		x = NEH(N, M, P, X);
+		auto end = chrono::high_resolution_clock::now();
+		auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+		cout <<s1<<" "<<x <<" czas: "<< duration.count()*1e-9<<"s"<<endl;
+
 	}
 	cin.get();				// czekanie z skończeniem działania programu
 	f.close();			//zamknięcie strumienia wczytywania danych z pliku
