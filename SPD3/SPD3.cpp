@@ -1,6 +1,7 @@
 ﻿// program do zadania 3 z SPD - Algorytm NEH
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 int cmax(int N, int M, int *P, int *X) //funkcja licząca długość wykonywania zadań
 {
@@ -65,23 +66,39 @@ int NEH(int N, int M, int* P, int* X)
 }
 int main()
 {
+	
 	int N, M, P[10000],X[1000];
-	string s;	
+	string s="data.",s1,s2;
 	ifstream f("data.txt");		// otworzenie strumienia wczytywania danych z pliku
-	while (s != "data.000:")	//szukanie odpowiedniego zbioru danych
+	for (int i = 0; i < 121; i++)
 	{
-		f >> s;
+		if (i < 10)
+		{
+			s1 = s + "00" + to_string(i) + ":";
+		}
+		else if (i < 100)
+		{
+			s1 = s + "0" + to_string(i) + ":";
+		}
+		else
+		{
+			s1 = s + to_string(i) + ":";
+		}
+		while (s2 != s1)				//szukanie odpowiedniego zbioru danych
+		{
+			f >> s2;
+		}
+		f >> N >> M;						//wczytanie ilości zadań oraz ilości maszyn
+		for (int i = 0; i < N * M; i++)		//wczytywanie parametrów kolejnych zadań
+		{
+			f >> P[i];
+		}
+		for (int i = 0; i < N; i++)
+		{
+			X[i] = i;
+		}
+		cout <<s1<<" "<<NEH(N, M, P, X) << endl;
 	}
-	f >> N >> M;		//wczytanie ilości zadań oraz ilości maszyn
-	for (int i = 0; i < N * M; i++)		//wczytywanie parametrów kolejnych zadań
-	{
-		f >> P[i];	
-	}
-	for (int i = 0; i < N; i++)
-	{
-		X[i] = i;
-	}
-	cout <<NEH(N, M, P, X)<<endl;
 	cin.get();				// czekanie z skończeniem działania programu
 	f.close();			//zamknięcie strumienia wczytywania danych z pliku
 }
