@@ -67,7 +67,6 @@ int NEH(int N, int M, int* P, int* X)
 }
 int main()
 {
-	
 	int N, M, P[10000],X[1000];
 	int x;
 	string s="data.",s1,s2;
