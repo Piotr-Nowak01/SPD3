@@ -20,10 +20,6 @@ int cmax(int N, int M, int *P, int *X) //funkcja licząca długość wykonywania
 	}
 	return T[M];
 }
-int qcmax(int N, int M, int* P, int* X)
-{
-	return 0;
-}
 void wagi(int N, int M, int* P, int* X)
 {
 	int* W = new int[N];
@@ -111,7 +107,7 @@ int main()
 		x = NEH(N, M, P, X);
 		auto end1 = chrono::high_resolution_clock::now();
 		auto duration1 = chrono::duration_cast<chrono::nanoseconds>(end1 - start1);
-		cout << s1 <<" "<<x<< " czas: "<<duration1.count() * 1e-9 << "s" <<endl;
+		cout << s1 <<" cmax: "<<x<< " czas: "<<duration1.count() * 1e-9 << "s" <<endl;
 	}
 	auto end = chrono::high_resolution_clock::now();
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
