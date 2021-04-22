@@ -20,6 +20,10 @@ int cmax(int N, int M, int *P, int *X) //funkcja licząca długość wykonywania
 	}
 	return T[M];
 }
+int qcmax(int N, int M, int* P, int* X)
+{
+	return 0;
+}
 void wagi(int N, int M, int* P, int* X)
 {
 	int* W = new int[N];
@@ -76,7 +80,7 @@ int main()
 	string s="data.",s1,s2;
 	ifstream f("data.txt");		// otworzenie strumienia wczytywania danych z pliku
 	auto start = chrono::high_resolution_clock::now();
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 121; i++)
 	{
 		if (i < 10)
 		{
@@ -95,15 +99,19 @@ int main()
 			f >> s2;
 		}
 		f >> N >> M;						//wczytanie ilości zadań oraz ilości maszyn
-		for (int i = 0; i < N * M; i++)		//wczytywanie parametrów kolejnych zadań
+		for (int j = 0; j < N * M; j++)		//wczytywanie parametrów kolejnych zadań
 		{
-			f >> P[i];
+			f >> P[j];
 		}
-		for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++)
 		{
-			X[i] = i;
+			X[j] = j;
 		}
+		auto start1=chrono::high_resolution_clock::now();
 		x = NEH(N, M, P, X);
+		auto end1 = chrono::high_resolution_clock::now();
+		auto duration1 = chrono::duration_cast<chrono::nanoseconds>(end1 - start1);
+		cout << s1 <<" "<<x<< " czas: "<<duration1.count() * 1e-9 << "s" <<endl;
 	}
 	auto end = chrono::high_resolution_clock::now();
 	auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
